@@ -1,0 +1,9 @@
+怎么添加战斗：
+1. 添加scr_charanum的初始敌人数量
+2. 添加scr_battleenemyspr的spr
+3. 添加scr_battleenemy_name的怪物名字
+4. 添加一组Wave obj
+5. 添加scr_battle_wave_setup_inst的开头对象
+6. 添加scr_battleenemy_maxhp和scr_battleenemy_max_magic_hp的怪物初始生命数值
+7. 如果有新的Target类型, 在scr_battle_get_damage中编辑获取方式
+8. 如果有新的Target类型, 编写obj_target的显示方式
