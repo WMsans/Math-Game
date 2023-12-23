@@ -1,3 +1,4 @@
+///@arg item_index
 function scr_item_add(_add){
 	if(global.item_num<global.backpacksize){
 		scr_item_sort();

@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "spr_player_skilllearn",
-    "path": "sprites/spr_player_skilllearn/spr_player_skilllearn.yy",
+    "name": "spr_block_cutscene",
+    "path": "sprites/spr_block_cutscene/spr_block_cutscene.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_par_depthobj",
+    "path": "objects/obj_par_depthobj/obj_par_depthobj.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -21,16 +24,17 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "tmp anim obj",
-    "path": "folders/Objects/tmp anim obj.yy",
+    "name": "cutscene",
+    "path": "folders/Objects/cutscene.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_player_skilllearn",
+  "name": "obj_cutscene_trgger_plot",
   "tags": [],
   "resourceType": "GMObject",
 }

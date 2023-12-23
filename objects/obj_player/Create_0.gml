@@ -73,4 +73,5 @@ if(global.charanowleader==1){
 #endregion
 actually_showing=1;
 
-instance_create_depth(x,y,0,obj_characterlight);
+if(instance_exists(obj_lighting_init))
+	instance_create_depth(x,y,0,obj_characterlight);

@@ -60,14 +60,17 @@ function scr_game_txt(_text_id){//translate
 			scr_text("It's too dirty. You don't want to touch it.");
 			break;
 		case"darkcrystal":
-			scr_text("A crystal.");
-			scr_text("The sunlight comes through it.");
-			scr_text("Are there anything to break it?");
-			if(instance_exists(obj_darkcrystal_right)){
-				if(obj_darkcrystal_right.flag){
-					scr_text("Something like... a sword?");
+			if(global.plot < plots.get_sword){
+				scr_text("Bright sunlight comes through the crystal.");
+				scr_text("Are there anything to break it?");
+				if(instance_exists(obj_darkcrystal_right)){
+					if(obj_darkcrystal_right.flag){
+						scr_text("Something like... a sword?");
+					}
+					obj_darkcrystal_right.flag++;
 				}
-				obj_darkcrystal_right.flag++;
+			}else{//进入森林
+				
 			}
 			break;
 		case"seelight":
@@ -113,10 +116,11 @@ function scr_game_txt(_text_id){//translate
 		case "unsheathe-yes":
 			scr_text_create_cutscene([
 				[scr_cutscene_change_variable,obj_player,"image_alpha",0],
-				[scr_cutscene_instance_create,obj_player.x,obj_player.x,"Instances",obj_player_skilllearn],
+				[scr_cutscene_instance_create,obj_player.x,obj_player.y,"Instances",obj_player_skilllearn],
 				[scr_cutscene_wait,3],
 				[scr_cutscene_text,"skilllearn_sword"],
 				[scr_cutscene_change_variable,obj_player,"image_alpha",1],
+				[scr_cutscene_change_global_variable, "plot", plots.get_sword],
 				[scr_cutscene_instance_destroy,obj_player_skilllearn]
 			]
 			);
@@ -142,7 +146,7 @@ function scr_game_txt(_text_id){//translate
 			scr_text("You decided to look for password elsewhere.");
 			break;
 		case"cutscene2_green_good":
-			if(global.plot<5){
+			if(global.plot<plots.game_controller_checked){
 				scr_text("You decided to look for password elsewhere.");
 			}else{
 				scr_text("What is the green digit?");
@@ -165,7 +169,7 @@ function scr_game_txt(_text_id){//translate
 			break;
 		case"cutscene2_unlocked":
 			scr_text("You hear a tick. Something opened.");
-			global.plot=6;
+			global.plot=plots.combination_lock_solved;
 			break;
 		case"cutscene2_bad":
 			scr_text("The lock got stucked.");
@@ -179,8 +183,14 @@ function scr_game_txt(_text_id){//translate
 		case"cutscene3_keyz":
 			scr_text("Press " + keychecks(global.keyz) + " to interact with surroundings.");
 			break;
+		case"cutscene4_itemuse":
+			scr_text("Certain events can be triggered by using certain items while next to objects.");
+			scr_text("For example, try to use the cleaner next to the bed.");
+			break;
 		case"skilllearn_sword":
 			scr_text("You get the wooden sword.");
+			scr_text("Open your backpack to use it.");
+			scr_item_add(3);
 			break;
 		#endregion
 		#region item using
@@ -214,7 +224,7 @@ function scr_game_txt(_text_id){//translate
 				scr_text_color(3,3,c_green,c_green,c_white,c_white);
 				scr_text_color(6,6,c_red,c_red,c_white,c_white);
 				scr_text_color(13,13,c_blue,c_blue,c_white,c_white);
-			global.plot=5;
+			global.plot=plots.game_controller_checked;
 			break;
 		case"use controller wrong":
 			scr_text("Some of the buttons are missing, but you can't see clearly...");

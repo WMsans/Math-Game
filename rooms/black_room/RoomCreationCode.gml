@@ -1,5 +1,5 @@
 scr_roomcode();
-scr_play_bgm(mus_darkroom,0,82.28);
+scr_play_bgm(mus_darkroom,0,82);//.28
 if(global.plot==1){//story begin
 	show_debug_message("story begin");
 	var _scene_info=[
