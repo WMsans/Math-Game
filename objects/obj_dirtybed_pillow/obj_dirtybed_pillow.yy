@@ -30,7 +30,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "black room",
-    "path": "folders/Objects/blocks/black room.yy",
+    "path": "folders/Objects/blocks/scenes/black room.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_dirtybed_pillow",

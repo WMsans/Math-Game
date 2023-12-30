@@ -8,8 +8,8 @@
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": {
-    "name": "obj_bullet",
-    "path": "objects/obj_bullet/obj_bullet.yy",
+    "name": "obj_bullet_par",
+    "path": "objects/obj_bullet_par/obj_bullet_par.yy",
   },
   "physicsObject": false,
   "physicsSensor": false,
@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "bullet",
-    "path": "folders/Objects/battle/bullet.yy",
+    "name": "tests",
+    "path": "folders/Objects/battle/bullet/tests.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_bullet_ball",

@@ -1,1 +1,1 @@
-sign_id="toilet";
+sign_id="5.toilet";

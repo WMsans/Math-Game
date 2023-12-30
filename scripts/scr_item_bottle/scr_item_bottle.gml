@@ -15,7 +15,7 @@ function scr_item_bottle(){
 				var _y=obj_dirtybed.y;
 				instance_destroy(obj_dirtybed);
 				var _clean=instance_create_layer(_x,_y,"Instances",obj_cleanbed);
-				_clean.sign_id="cleanbed";
+				_clean.sign_id="7.cleanbed";
 				global.bedcleaned=1;
 			}
 			scr_create_chatbox("use clean bottle");

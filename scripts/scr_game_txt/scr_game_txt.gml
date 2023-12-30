@@ -55,11 +55,11 @@ function scr_game_txt(_text_id){//translate
 			scr_item_add(1);
 			scr_text("*You get an apple");
 			break;
-		case"dirtybed":
+		case"1.dirtybed":
 			scr_text("A dirty bed.");
 			scr_text("It's too dirty. You don't want to touch it.");
 			break;
-		case"darkcrystal":
+		case"2.darkcrystal":
 			if(global.plot < plots.get_sword){
 				scr_text("Bright sunlight comes through the crystal.");
 				scr_text("Are there anything to break it?");
@@ -70,37 +70,43 @@ function scr_game_txt(_text_id){//translate
 					obj_darkcrystal_right.flag++;
 				}
 			}else{//进入森林
-				
+				scr_text_create_cutscene([
+					[scr_cutscene_instance_create, 0, 0, "fade", obj_fade_whitescreen],
+					[scr_cutscene_instance_create, 0, 0, "fade", obj_fade_whitescreen],
+					[scr_cutscene_wait,3],
+					[scr_cutscene_room_goto, into_forest, 120, 288, false]
+				]
+				);
 			}
 			break;
-		case"seelight":
+		case"3.seelight":
 			scr_text("Due to darkness, you can't see the beautiful pattern on the wall...");
 			scr_text("What a pity.");
 			break;
-		case"mirror":
+		case"4.mirror":
 			scr_text("Why can't you see yourself in the mirror?");
 			break;
-		case"toilet":
+		case"5.toilet":
 			scr_text("A toilet.");
 			scr_text("It doesn't help, for now.");
 			break;
-		case"clean bottle":
+		case"6.clean bottle":
 			scr_text("A cleaner.");
 			scr_text("Do you want to pick it up?");
-			scr_options("Yes.","clean bottle-yes");
-			scr_options("No.","clean bottle-no");
+			scr_options("Yes.","6.clean bottle-yes");
+			scr_options("No.","6.clean bottle-no");
 			break;
-		case"clean bottle-yes":
+		case"6.clean bottle-yes":
 			scr_item_add(8);
 			if(instance_exists(obj_bottle))instance_destroy(obj_bottle);
 			scr_text("You get a cleaner bottle.");
 				scr_text_color(10,24,c_yellow,c_yellow,c_white,c_white);
 			scr_text("Press "+keychecks(global.keyc)+" to use the item.");
 			break;
-		case"clean bottle-no":
+		case"6.clean bottle-no":
 			scr_text("You decided to explore elsewhere.");
 			break;
-		case"cleanbed":
+		case"7.cleanbed":
 			var flag=1;
 			for(var i=1;i<=global.item_num;i++) if(global.item[i]==9) flag=0;
 			if(flag) scr_item_add(9);
@@ -108,12 +114,12 @@ function scr_game_txt(_text_id){//translate
 			scr_text("But you can't see what's on the controller because of the dim light.");
 			scr_text("Maybe try check it at somewhere brighter...");
 			break;
-		case "unsheathe":
+		case "8.unsheathe":
 			scr_text("Do you want to unsheathe the sword?");
-			scr_options("Yes.","unsheathe-yes");
-			scr_options("No.","unsheathe-no");
+			scr_options("Yes.","8.unsheathe-yes");
+			scr_options("No.","8.unsheathe-no");
 			break;
-		case "unsheathe-yes":
+		case "8.unsheathe-yes":
 			scr_text_create_cutscene([
 				[scr_cutscene_change_variable,obj_player,"image_alpha",0],
 				[scr_cutscene_instance_create,obj_player.x,obj_player.y,"Instances",obj_player_skilllearn],
@@ -125,8 +131,14 @@ function scr_game_txt(_text_id){//translate
 			]
 			);
 			break;
-		case "unsheathe-no":
-			scr_text("You are thinking if there's something more important to do.");
+		case "8.unsheathe-no":
+			scr_text("Are there's anything more important to do?");
+			break;
+		case "9.into forest":
+			scr_text("Into the calming forest.");
+			scr_text("You feel a sense of connection...");
+			scr_text("Your HP fully recovered.");
+			savebox = true;
 			break;
 		#endregion
 		#region cutscene

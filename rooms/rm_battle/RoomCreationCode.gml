@@ -5,3 +5,8 @@ if(!instance_exists(obj_drawsorter)) instance_create_layer(-999,-999,"Instances"
 
 scr_battle_init_charay();
 scr_ui_dialog_init();
+
+/*
+The size of the arena is 1280 * 528.
+
+*/

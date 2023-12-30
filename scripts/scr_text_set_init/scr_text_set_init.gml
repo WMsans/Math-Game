@@ -27,4 +27,5 @@ function scr_text_set_init(){
 	speaker_side[page_num]=1;
 	
 	snd[page_num]=snd_txt_init;
+	fnt[page_num] = fnt_init;
 }

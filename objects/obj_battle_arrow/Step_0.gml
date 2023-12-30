@@ -1,4 +1,7 @@
-
+if(obj_battle.battle_state == BATTLE_STATES.enemy){
+	x += obj_character_battle.hsp;
+	y += obj_character_battle.vsp;
+}
 
 if(tarx==-999&&tary==-999){
 	image_xscale+=(0-image_xscale)/5;

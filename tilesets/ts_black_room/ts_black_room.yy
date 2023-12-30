@@ -81,8 +81,8 @@
     "TileSerialiseData": [],
   },
   "parent": {
-    "name": "Tile Sets",
-    "path": "folders/Tile Sets.yy",
+    "name": "dark room",
+    "path": "folders/Tile Sets/dark room.yy",
   },
   "resourceVersion": "1.0",
   "name": "ts_black_room",

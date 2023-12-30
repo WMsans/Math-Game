@@ -1,1 +1,1 @@
-sign_id="mirror";
+sign_id="4.mirror";

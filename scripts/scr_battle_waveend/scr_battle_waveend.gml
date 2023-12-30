@@ -28,7 +28,7 @@ function scr_battle_waveend(){
 	with(obj_wave){
 		instance_destroy();
 	}
-	with(obj_bullet){
+	with(obj_bullet_par){
 		instance_destroy();
 	}
 }

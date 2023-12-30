@@ -1,1 +1,1 @@
-sign_id="clean bottle";
+sign_id="6.clean bottle";

@@ -1,4 +1,5 @@
 function scr_initialize(){
+randomize();
 scr_enums();
 global.checkpoint_id=noone;
 if(!file_exists("file0.sav")){
@@ -71,7 +72,10 @@ for(var i=0;i<=global.charanum;i++) global.charahp[i]=global.charamaxhp[i];
 scr_itemdata_load();
 scr_load_setting();
 
-//DEBUG
+#region DEBUG
 global.debug=true;
+global.plot = plots.get_sword;
+
+#endregion
 room_goto(rm_title);
 }

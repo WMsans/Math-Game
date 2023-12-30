@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "player",
-    "path": "folders/Sprites/characters/player.yy",
+    "name": "player - old",
+    "path": "folders/Sprites/characters/player - old.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_player_skilllearn",

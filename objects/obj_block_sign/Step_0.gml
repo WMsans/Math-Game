@@ -1,5 +1,5 @@
 if(instance_exists(obj_player)){
-	if(distance_to_object(obj_player)<24&&!global.skill_setting){
+	if(scr_actual_dist(obj_player, self, 24)&&!global.skill_setting){
 		//tarscale=1.2;
 		if(global.expecting_textblock_x==-999||global.expecting_textblock_y==-999){
 			global.expecting_textblock_x=x+(variable_instance_exists(id, "middle_block") ? 0 : sprite_width/2);

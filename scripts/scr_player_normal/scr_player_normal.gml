@@ -50,19 +50,17 @@ function scr_player_normal(){
 	if(hsp==0&&vsp==0){//player stay still
 		switch(facing){
 			case -1:
-				image_xscale=1;
 				sprite_index=spr;
 				break;
 			case 1:
-				image_xscale=1;
 				sprite_index=sprback;
 				break;
 			case 2://右
-				image_xscale=-1;
+				image_xscale=1;
 				sprite_index=sprside;
 				break;
 			case -2://左
-				image_xscale=1;
+				image_xscale=-1;
 				sprite_index=sprside;
 				break;
 		}
@@ -70,19 +68,17 @@ function scr_player_normal(){
 	}else{//player is moving
 		switch(facing){
 			case -1:
-				image_xscale=1;
 				sprite_index=sprwalk;
 				break;
 			case 1:
-				image_xscale=1;
 				sprite_index=sprbackwalk;
 				break;
 			case 2:
-				image_xscale=-1;
+				image_xscale=1;
 				sprite_index=sprsidewalk;
 				break;
 			case -2:
-				image_xscale=1;
+				image_xscale=-1;
 				sprite_index=sprsidewalk;
 				break;
 		}

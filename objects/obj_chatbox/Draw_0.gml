@@ -91,7 +91,10 @@ if(draw_char<text_len[page]){
 			sound_ct++;
 		}else{
 			sound_ct=0;
-			audio_play_sound(snd_txt_init,8,0);
+			if(snd[page] != noone)
+				audio_play_sound(snd[page], 8, 0);
+			else
+				audio_play_sound(snd_txt_init,8,0);
 		}
 	}
 }
@@ -153,7 +156,7 @@ if(!print_op){//Not printing option
 #endregion
 #region draw the txt
 if(!print_op){
-	
+	draw_set_font(fnt[page]);
 	for(var i=0;i<draw_char;i++){
 		//float text
 		var _float_y=0;

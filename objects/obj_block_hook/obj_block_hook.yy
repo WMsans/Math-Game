@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "blocks",
-    "path": "folders/Objects/blocks.yy",
+    "name": "basic",
+    "path": "folders/Objects/blocks/basic.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_block_hook",

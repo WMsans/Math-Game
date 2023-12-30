@@ -4,7 +4,7 @@ function scr_item_controller(){
 		var flag=0;
 		if(instance_exists(obj_block_sign_untransparent)){
 			with(obj_block_sign_untransparent){
-				if(global.expecting_textblock_x==x+(variable_instance_exists(id, "middle_block") ? 0 : sprite_width/2) && global.expecting_textblock_y==y-(variable_instance_exists(id, "middle_block") ? sprite_height/2 : 0)&&sign_id=="seelight"){
+				if(global.expecting_textblock_x==x+(variable_instance_exists(id, "middle_block") ? 0 : sprite_width/2) && global.expecting_textblock_y==y-(variable_instance_exists(id, "middle_block") ? sprite_height/2 : 0)&&sign_id=="3.seelight"){
 					flag=1;
 				}
 			}

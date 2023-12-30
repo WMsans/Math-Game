@@ -1,5 +1,7 @@
 function scr_roomcode(){
 	scr_fadein();
+	global.expecting_textblock_x=-999;
+	global.expecting_textblock_y=-999;
 	if(!instance_exists(obj_DEBUG)){
 		instance_create_layer(-999,-999,"Instances",obj_DEBUG);
 	}

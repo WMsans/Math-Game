@@ -126,8 +126,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Natasha",
-    "path": "folders/Sprites/characters/Natasha.yy",
+    "name": "Natasha - old",
+    "path": "folders/Sprites/characters/Natasha - old.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_natasha_battle_slashHB",

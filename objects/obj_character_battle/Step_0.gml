@@ -78,36 +78,38 @@ if(obj_battle.battle_state==BATTLE_STATES.enemy){//战斗中
 		#region attack
 		if(!instance_exists(obj_battle.battle_ui_dialog)){
 			if(keyboard_check_pressed(global.keyz)){
+				/*
 				if(chara_state==MOVING_STATE.idle){//站劈
 					chara_state=MOVING_STATE.slash;
 					sprite_index=_chara_spr[MOVING_STATE.slash];
 					image_index=0;
 					ds_list_clear(hitbyattack);
-				}else if(chara_state == MOVING_STATE.running){
-					chara_state=MOVING_STATE.slash;
-					sprite_index=_chara_spr[MOVING_STATE.slash];
+				}else if(chara_state == MOVING_STATE.running){//跑劈
+					chara_state=MOVING_STATE.runslash;
+					sprite_index=_chara_spr[MOVING_STATE.running];
 					image_index=0;
 					ds_list_clear(hitbyattack);
+				}*/
+				if(!instance_exists(obj_character_slash)){
+					slash_anim = instance_create_layer(x,y,"bullet", obj_character_slash);
+					slash_anim.slashHB = _chara_spr[MOVING_STATE.slashHB];
+					slash_anim.sprite_index = _chara_spr[MOVING_STATE.slash];
 				}
 			}
-			if(chara_state==MOVING_STATE.slash){
-				scr_battle_chara_slash_detect();
-				if(scr_animation_end()||scr_animation_end_half()){//image_index%(image_number/2)<1
-					ds_list_clear(hitbyattack);
-					if(!keyboard_check(global.keyz)){
-						if(dirh || dirv){//moving
-							chara_state = MOVING_STATE.running;
-						}else{//idle
-							chara_state=MOVING_STATE.idle;
-							sprite_index=_chara_spr[MOVING_STATE.idle];
-						}
+			if(chara_state==MOVING_STATE.slash || chara_state == MOVING_STATE.runslash){
+				if(!instance_exists(slash_anim)){
+					if(dirh || dirv){//moving
+						chara_state = MOVING_STATE.running;
+					}else{//idle
+						chara_state=MOVING_STATE.idle;
+						sprite_index=_chara_spr[MOVING_STATE.idle];
 					}
 				}
 			}
 		}
 		#endregion
 		#region skill
-		if(keyboard_check_pressed(global.keyx)&&global.charaskillnum[pos]!=0){
+		if(keyboard_check_pressed(global.keyx)&&global.charaskillnum[pos]>0){
 			chara_state=MOVING_STATE.skill;
 			scr_battle_chara_skill_spr(pos);
 		}
@@ -116,8 +118,8 @@ if(obj_battle.battle_state==BATTLE_STATES.enemy){//战斗中
 		}
 		#endregion
 		#region animation
-		if(chara_state!=MOVING_STATE.slash&&chara_state!=MOVING_STATE.runslash&&chara_state!=MOVING_STATE.skill){
-			if(hsp==0&&vsp==0){
+		if(chara_state!=MOVING_STATE.slash&&chara_state!=MOVING_STATE.skill){
+			if(hsp==0&&vsp==0){//player is still
 				chara_state=MOVING_STATE.idle;
 				sprite_index=_chara_spr[MOVING_STATE.idle];
 			}else{//player is moving
@@ -126,9 +128,9 @@ if(obj_battle.battle_state==BATTLE_STATES.enemy){//战斗中
 			}
 		}
 		//探测敌人位置
-		var _flag=true;
-		var _closdis=999;
-		var _closobj=noone;
+		_flag=true;
+		_closdis=999;
+		_closobj=noone;
 		for(var i=0;i<scr_enemy_num();i++){
 			if(_closdis>distance_to_object(scr_enemy_get(i))){
 				_closdis=distance_to_object(scr_enemy_get(i));

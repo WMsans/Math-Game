@@ -16,7 +16,7 @@ state_machine[PLAYER_OVERWORLD_STATE.normalskill]=scr_player_normalskill;
 #endregion
 hsp=0;
 vsp=0;
-max_sp=3;
+max_sp=5;
 inv=50;
 //keys
 key_left=0;
@@ -24,8 +24,8 @@ key_right=0;
 key_down=0;
 key_up=0;
 //movement
-accel=0.7;
-decel=-0.5;
+accel=1;
+decel=-1.2;
 dirv=0;
 dirh=0;
 last_dirv=0;
