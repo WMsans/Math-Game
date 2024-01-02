@@ -41,7 +41,7 @@ function scr_target_physics(){
 		
 		if(battle_chara_fighting_count<fight_using){//攻击一次
 			//记录攻击数值
-			battle_damage[battle_menu_choice[battle_chara_fighting]]+=scr_battle_get_damage(battle_chara_fighting);
+			battle_damage[battle_chara_fighting]=scr_battle_get_damage(battle_chara_fighting);
 			battle_chara_fighting++;//下一位
 			battle_chara_fighting_count++;
 			battle_chara_fighting_count_real++;
@@ -56,15 +56,6 @@ function scr_target_physics(){
 			}
 		}
 		if(battle_chara_fighting_count==fight_using){//攻击结束
-			if(!instance_exists(battle_fight_anim)){
-				for(var i=1;i<=global.charanum;i++){//生成攻击动画inst
-					if(button_choice[i]==1&&global.charabattletarget[i]==1){
-						battle_fight_anim=instance_create_layer(1120,init_chara_y[battle_menu_choice[i]],"anim",global.charaattackanim[i]);
-						scr_battle_chara_slash_anim(character_inst[i]);
-						//play sound
-					}
-				}
-			}
 			for(var i=battle_fight_nowpos;i<=global.charanum;i++){
 				if(button_choice[i]==1&&global.charabattletarget[i]==1) vis_fight[i]=1;
 			}
@@ -82,7 +73,6 @@ function scr_target_physics(){
 				}
 			}
 			
-			battle_fight_anim_time=sprite_get_number(battle_fight_anim.sprite_index)*10;
 			//删除target
 			battle_target_inst.fading=1;
 			battle_targetchoice_inst.fading=1;

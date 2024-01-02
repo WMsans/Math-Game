@@ -48,11 +48,6 @@ function scr_target_naturalnumber(){
 			battle_chara_fighting_count_real++;
 		}
 		//攻击结束
-		if(!instance_exists(battle_fight_anim)){
-			battle_fight_anim=instance_create_layer(1120,init_chara_y[battle_menu_choice[battle_fight_nowpos]],"anim",global.charaattackanim[battle_fight_nowpos]);
-			scr_battle_chara_slash_anim(character_inst[battle_chara_fighting]);
-			//play sound
-		}
 		
 		vis_fight[battle_fight_nowpos]=1;
 		

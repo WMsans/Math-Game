@@ -8,7 +8,7 @@ function scr_battle_chara_slash_detect(){
 			if(ds_list_find_index(hitbyattack, hitid)==-1){
 				ds_list_add(hitbyattack, hitid);
 				with(hitid){//被砍的敌人做什么
-					scr_battle_enemyhit(10);//10改为攻击力DEBUG
+					scr_battle_enemyhit(obj_battle.battle_damage[obj_battle.battle_chara_now]);//10改为攻击力DEBUG
 				}
 			}
 		}

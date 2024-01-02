@@ -39,7 +39,6 @@ function scr_loadgame(){
 			global.charaspr[i]=ini_read_real("progress","charaspr"+string(i),1);
 			for(var j=1;j<=global.charaskillnum[i];j++) global.charaskill[i][j]=ini_read_real("progress","charaskill"+string(i)+"+"+string(j),1);
 			global.charamaxhp[i]=ini_read_real("progress","charamaxhp"+string(i),100);
-			global.charaattackanim[i]=ini_read_real("progress","charaattackanim"+string(i),obj_attack_anim_cut1);
 			global.charabattletarget[i]=ini_read_real("progress","charabattletarget"+string(i),1);
 			global.charaattack[i]=ini_read_real("progress","charaattack"+string(i),0);
 			global.charamagicattack[i]=ini_read_real("progress","charamagicattack"+string(i),0);

@@ -4,7 +4,7 @@ scr_enums();
 global.checkpoint_id=noone;
 if(!file_exists("file0.sav")){
 	global.checkpoint_rm=rm_01;//black_room
-	global.checkpoint_x=752;//752
+	global.checkpoint_x=352;//752
 	global.checkpoint_y=208;//208
 	global.keyright=vk_right;
 	global.keyleft=vk_left;
@@ -30,7 +30,6 @@ if(!file_exists("file0.sav")){
 		global.charaweapon[i]=7;
 		global.charaarmor[i]=4;
 		global.charaspr[i]=1;
-		global.charaattackanim[i]=obj_attack_anim_cut1;
 		global.charaskill[i][1]=1;
 		global.charaskillnum[i]=0;
 		global.charabattletarget[i]=1;
@@ -73,8 +72,10 @@ scr_itemdata_load();
 scr_load_setting();
 
 #region DEBUG
+//scr_chara_join_team("Natasha", 100, 7, 4, 2);
 global.debug=true;
 global.plot = plots.get_sword;
+scr_item_add(3);
 
 #endregion
 room_goto(rm_title);

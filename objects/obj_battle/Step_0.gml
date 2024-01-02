@@ -471,34 +471,32 @@ if(battle_state==BATTLE_STATES.encounter_text){
 		}else if(battle_button_state==BATTLE_BUTTON_STATE.fight_target){//蓄力条
 			script_execute(target_script[global.charabattletarget[battle_fight_nowpos]]);
 		}else if(battle_button_state==BATTLE_BUTTON_STATE.fight_anim){
-			if(battle_fight_anim_time){
-				battle_fight_anim_time--;
-			}else{
-				for(var i=1;i<=scr_enemynum(global.next_enemy_id);i++){
-					if(!instance_exists(battle_damage_inst[i])){
-						battle_damage_inst[i]=instance_create_layer(1120,init_chara_y[battle_menu_choice[i]]-75,"anim",obj_damage_num);
-						battle_damage_inst[i].pos=i;
-					}
+			/*
+			for(var i=1;i<=scr_enemynum(global.next_enemy_id);i++){//显示怪物收到的伤害
+				if(!instance_exists(battle_damage_inst[i])){
+					battle_damage_inst[i]=instance_create_layer(1120,init_chara_y[battle_menu_choice[i]]-75,"anim",obj_damage_num);
+					battle_damage_inst[i].pos=i;
 				}
-				for(var i=1;i<=scr_enemynum(global.next_enemy_id);i++){
-					if(battle_damage[i]>0){
-						with(scr_enemy_get(battle_menu_choice[i]-1)){//attacked dialog
-							event_user(2);//更改为受伤对话
-							event_user(0);
-							scr_battle_enemyhit(other.battle_damage[i]);//减少怪物血量
-						}
-					}
-					if(battle_magicdamage[i]>0){
-						with(scr_enemy_get(battle_menu_choice[i]-1)){//magic attacked dialog
-							event_user(3);//更改为魔法受伤对话
-							event_user(0);
-							scr_battle_enemymagichit(other.battle_magicdamage[i]);//减少怪物魔法血量
-						}
-					}
-				}
-				battle_button_state=BATTLE_BUTTON_STATE.fight_damage;
-				battle_damage_time=80;
 			}
+			for(var i=1;i<=scr_enemynum(global.next_enemy_id);i++){
+				if(battle_damage[i]>0){
+					with(scr_enemy_get(battle_menu_choice[i]-1)){//attacked dialog
+						event_user(2);//更改为受伤对话
+						event_user(0);
+						scr_battle_enemyhit(other.battle_damage[i]);//减少怪物血量
+					}
+				}
+				if(battle_magicdamage[i]>0){
+					with(scr_enemy_get(battle_menu_choice[i]-1)){//magic attacked dialog
+						event_user(3);//更改为魔法受伤对话
+						event_user(0);
+						scr_battle_enemymagichit(other.battle_magicdamage[i]);//减少怪物魔法血量
+					}
+				}
+			}
+			*/
+			battle_button_state=BATTLE_BUTTON_STATE.fight_damage;
+			battle_damage_time=80;
 		}else if(battle_button_state==BATTLE_BUTTON_STATE.fight_damage){
 			if(battle_damage_time>0){
 				battle_damage_time--;
@@ -557,3 +555,4 @@ if(battle_state==BATTLE_STATES.player||battle_state==BATTLE_STATES.encounter_tex
 	obj_battle_arrow_chara.tary=arrow_tary;
 }
 
+show_debug_message(string(battle_damage[battle_chara_now]) + " " + string(scr_enemy_get(0).hp));

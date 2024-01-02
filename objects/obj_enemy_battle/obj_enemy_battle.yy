@@ -28,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "enemies",
-    "path": "folders/Objects/battle/enemies.yy",
+    "name": "tests",
+    "path": "folders/Objects/battle/enemies/tests.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_enemy_battle",

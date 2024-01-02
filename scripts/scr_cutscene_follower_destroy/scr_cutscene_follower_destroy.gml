@@ -13,7 +13,6 @@ function scr_cutscene_follower_destroy(){
 			global.charaweapon[i]=global.charaweapon[i+1];
 			global.charaarmor[i]=global.charaarmor[i+1];
 			global.charaspr[i]=global.charaspr[i+1];
-			global.charaattackanim[i]=global.charaattackanim[i+1];
 			global.charainst[i]=global.charainst[i+1];
 		}
 	}

@@ -7,8 +7,8 @@ function scr_item_woodensword(){
 				scr_skill_add(selected_character,2);
 			}else scr_item_add(global.charaweapon[selected_character]);
 			scr_item_remove(selected_item1);
-			global.charaweapon[selected_character]=3;
-			
+			global.charaweapon[selected_character] = 3;
+			global.charaattack[selected_character] = 10;
 		}else if(global.charaname[selected_character]=="Natasha"){
 			scr_create_chatbox("woodensword-Natasha");
 		}
@@ -17,6 +17,7 @@ function scr_item_woodensword(){
 		scr_item_remove(argument[1]);
 		scr_item_add(global.charaweapon[argument[0]]);
 		global.charaweapon[argument[0]]=3;
+		global.charaattack[argument[0]] = 10;
 		obj_battle.battle_ui_dialog=scr_create_text(432+15+5,520+16,"setting",scr_ui_dialog_get()){
 			obj_battle.battle_ui_dialog.can_destroy=1;
 		}

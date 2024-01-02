@@ -81,11 +81,10 @@ battle_target_resetable=0;
 battle_target_resettime=0;
 battle_target_resettimer=60;
 
-battle_fight_anim=noone;
-battle_fight_anim_time=0;
-
 for(var i=1;i<=scr_enemynum(global.next_enemy_id);i++){
 	battle_damage_inst[i]=noone;
+}
+for(var i = 1; i <= global.charanum; i++){
 	battle_damage[i]=0;
 	battle_magicdamage[i]=0;
 }

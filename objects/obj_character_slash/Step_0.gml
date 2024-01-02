@@ -18,6 +18,7 @@ if(instance_exists(obj_character_battle)){
 	
 }else instance_destroy();
 if(!instance_exists(obj_wave)) instance_destroy();
+else if(instance_exists(obj_wave_ending)) instance_destroy();
 
 if(scr_animation_end()||scr_animation_end_half()){//image_index%(image_number/2)<1
 	ds_list_clear(hitbyattack);

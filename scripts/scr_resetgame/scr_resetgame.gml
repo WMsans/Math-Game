@@ -33,7 +33,6 @@ function scr_resetgame(){
 		global.charaweapon[i]=3;
 		global.charaarmor[i]=4;
 		global.charaspr[i]=1;
-		global.charaattackanim[i]=obj_attack_anim_cut1;
 		global.charaskill[i][1]=1;
 	}
 	global.charaskillnum[1]=0;

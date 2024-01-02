@@ -41,7 +41,6 @@ function scr_savegame(){
 		ini_write_real("progress","charaspr"+string(i),global.charaspr[i]);
 		for(var j=1;j<=global.charaskillnum[i];j++) ini_write_real("progress","charaskill"+string(i)+"+"+string(j),global.charaskill[i][j]);
 		ini_write_real("progress","charamaxhp"+string(i),global.charamaxhp[i]);
-		ini_write_real("progress","charaattackanim"+string(i),global.charaattackanim[i]);
 		ini_write_real("progress","charabattletarget"+string(i),global.charabattletarget[i]);
 		ini_write_real("progress","chararesistance"+string(i),global.chararesistance[i]);
 		ini_write_real("progress","charaattack"+string(i),global.charaattack[i]);

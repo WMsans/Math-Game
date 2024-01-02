@@ -69,7 +69,7 @@ function scr_game_txt(_text_id){//translate
 					}
 					obj_darkcrystal_right.flag++;
 				}
-			}else{//进入森林
+			}else if(global.charaweapon[global.charanowleader] != 7){//进入森林
 				scr_text_create_cutscene([
 					[scr_cutscene_instance_create, 0, 0, "fade", obj_fade_whitescreen],
 					[scr_cutscene_instance_create, 0, 0, "fade", obj_fade_whitescreen],
@@ -77,6 +77,9 @@ function scr_game_txt(_text_id){//translate
 					[scr_cutscene_room_goto, into_forest, 120, 288, false]
 				]
 				);
+			}else{
+				scr_text("Press " + keychecks(global.keyc) + " to equip the sword.");
+				
 			}
 			break;
 		case"3.seelight":
