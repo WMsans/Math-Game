@@ -169,14 +169,16 @@ function scr_game_txt(_text_id){//translate
 		case"11.after take":
 			if(global.plot <= plots.into_forest){
 				scr_create_cutscene([
-					[scr_cutscene_text,"11.take"]
-					
+					[scr_cutscene_text,"11.take"],
+					[scr_cutscene_text,"11.enemy_approching"],
+					[scr_cutscene_move_chara,obj_player, obj_player.x, 360, false, 3],
+					[scr_cutscene_layer_shake,5,20,"Tiles_bushes"]
 				]);
 			}else scr_game_txt("11.take");
 			
 			break;
 		case"11.enemy_approching":
-			
+			scr_text("You feel there is something in the bushes.");
 			break;
 		case"11.leave":
 			scr_text("You decided to leave it for after comers.");

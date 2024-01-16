@@ -31,55 +31,32 @@ function scr_cutscene_move_chara(_obj,_tarx,_tary,_relative,_spd){
 			
 			//animate sprite
 			#region sprite animation
-			var _name=object_get_name(id);
-			if(_name=="obj_player"||_name=="obj_follower"){
+			if(object_index == obj_player || object_index == obj_follower){
 				image_speed=1;
-				if(ldirx==0&&ldiry==0){//player stay still
-					switch(_facing){
-						case -1:
-							image_xscale=1;
-							sprite_index=spr;
-							break;
-						case 1:
-							image_xscale=1;
-							sprite_index=sprback;
-							break;
-						case 2:
-							image_xscale=-1;
-							sprite_index=sprside;
-							break;
-						case -2:
-							image_xscale=1;
-							sprite_index=sprside;
-							break;
-					}
-	
-				}else{//player is moving
-					switch(_facing){
-						case -1:
-							image_xscale=1;
-							sprite_index=sprwalk;
-							break;
-						case 1:
-							image_xscale=1;
-							sprite_index=sprbackwalk;
-							break;
-						case 2:
-							image_xscale=-1;
-							sprite_index=sprsidewalk;
-							break;
-						case -2:
-							image_xscale=1;
-							sprite_index=sprsidewalk;
-							break;
-					}
+				switch(_facing){
+					case -1:
+						sprite_index=sprwalk;
+						break;
+					case 1:
+						sprite_index=sprbackwalk;
+						break;
+					case 2:
+						image_xscale=1;
+						sprite_index=sprsidewalk;
+						break;
+					case -2:
+						image_xscale=-1;
+						sprite_index=sprsidewalk;
+						break;
+					case 0:
+						
+						break;
 				}
 			}
 			#endregion
 		}else{
 			//animate sprite
-			var _name=object_get_name(id);
-			if(_name=="obj_player"||_name=="obj_follower") facing=_facing;
+			if(object_index == obj_player || object_index == obj_follower) facing=_facing;
 			x=xx; y=yy;
 			with(other){
 				x_dest=-1; y_dest=-1;

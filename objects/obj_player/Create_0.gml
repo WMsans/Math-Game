@@ -35,6 +35,7 @@ initflag=1;
 facing=-1;
 scr_load_character_spr(global.charanowleader);
 skill_init=1;
+sprite_init=false;
 
 #region character following 
 array_size=256;

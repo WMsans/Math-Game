@@ -11,4 +11,9 @@ yTo=y;
 shake_length=0;
 shake_magnitude=0;
 shake_remain=0;
+
+layer_shake_length=ds_list_create();
+layer_shake_magnitude=ds_list_create();
+layer_shake_remain=ds_list_create();
+layer_shake_layer=ds_list_create();
 buff=16;

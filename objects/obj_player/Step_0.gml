@@ -12,8 +12,11 @@ if(!instance_exists(obj_fade) && !instance_exists(obj_chatbox) && !(instance_exi
 }
 #endregion
 
-if(!instance_exists(obj_cutscene)) script_execute(state_machine[player_overworld_state]);
-else{//spr归位
+if(!instance_exists(obj_cutscene)){
+	script_execute(state_machine[player_overworld_state]);
+	sprite_init = false;
+}else if(!sprite_init){//spr归位
+	sprite_init = true;
 	if(player_overworld_state==PLAYER_OVERWORLD_STATE.normal||player_overworld_state==PLAYER_OVERWORLD_STATE.normalskill){
 		//sprite return to normal
 		switch(facing){
@@ -26,11 +29,11 @@ else{//spr归位
 				sprite_index=sprback;
 				break;
 			case 2://右
-				image_xscale=-1;
+				image_xscale=1;
 				sprite_index=sprside;
 				break;
 			case -2://左
-				image_xscale=1;
+				image_xscale=-1;
 				sprite_index=sprside;
 				break;
 		}
