@@ -5,7 +5,6 @@ function scr_overworld_chara_skill_spr(_pos){
 			
 			break;
 		case 2:
-			sprite_index=spr_player_battle_slash;
 			
 			break;
 	}

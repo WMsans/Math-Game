@@ -8,7 +8,7 @@ if(instance_exists(obj_character_battle)){
 	if(_flag){
 		var _vsp = obj_character_battle.vsp;
 		var _hsp = obj_character_battle.hsp;
-		if(!scr_actual_equal(_hsp, 0, 0.01) || !scr_actual_equal(_vsp, 0, 0.01)){
+		if(!scr_actual_equal(_hsp, 0, 1) || !scr_actual_equal(_vsp, 0, 1)){
 			image_angle = point_direction(0,0,_hsp,_vsp);
 		}
 	}else{

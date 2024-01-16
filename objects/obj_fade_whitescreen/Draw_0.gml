@@ -6,5 +6,5 @@ if(timer == time){
 
 draw_set_alpha(timer/time);
 draw_set_color(c_white);
-draw_rectangle(0,0,1280,720,false);
+draw_rectangle(-100,-100,1380,820,false);
 draw_set_alpha(1);

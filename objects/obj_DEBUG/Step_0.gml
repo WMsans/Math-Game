@@ -24,4 +24,3 @@ if(keyboard_check_pressed(vk_f4)){//全屏切换
 		scr_fullscreen(window_get_fullscreen());
 	}
 }
-

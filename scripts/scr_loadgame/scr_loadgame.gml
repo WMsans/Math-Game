@@ -49,6 +49,8 @@ function scr_loadgame(){
 		global.backpacksize=ini_read_real("progress","backpacksize",8);
 		global.mutiplayer=ini_read_real("progress","mutiplayer",false);
 		global.plot=ini_read_real("progress","plot",1);
+		
+		global.candytook = ini_read_real("progress","candytook",0);;
 		ini_close();
 		//scr_fadeout(global.checkpoint_rm,global.checkpoint_x,global.checkpoint_y);
 	}

@@ -1,5 +1,5 @@
 /// @description 
-if(obj_battle.battle_damage[pos]<=0&&obj_battle.battle_magicdamage[pos]<=0) draw_self();
+if(obj_battle.battle_damage_cnt[pos]==0&&obj_battle.battle_magicdamage[pos]==0) draw_self();
 else {
 	draw_set_valign(fa_middle);
 	draw_set_halign(fa_center);

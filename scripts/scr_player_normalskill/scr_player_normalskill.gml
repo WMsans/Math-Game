@@ -64,13 +64,12 @@ function scr_player_normalskill(){
 			break;
 		case 2://aleX 十字划
 			if(skill_flag==1){
-				skill_flag=0;
-				image_index=1;
-				if(facing==2||facing==-2){
-					image_xscale= image_xscale == -1 ? 1 : -1;
-				}
+				if(!instance_exists(obj_character_slash_skill) && instance_exists(obj_player)){
+					instance_create_layer(obj_player.x, obj_player.y, "Instances", obj_character_slash_skill);
+				}else scr_player_skillend();
+				skill_flag = 0;
 			}
-			if(image_index>image_number-1) scr_player_skillend();
+			scr_player_skillend();
 			
 			break;
 	}

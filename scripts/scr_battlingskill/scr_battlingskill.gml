@@ -63,7 +63,8 @@ function scr_battlingskill(_pos){
 			
 			break;
 		case 2://aleX 十字划
-			if(image_index>=image_number-1) scr_player_skillend();
+			chara_state=MOVING_STATE.idle;
+			sprite_index=_chara_spr[MOVING_STATE.idle];
 			break;
 	}
 }

@@ -15,8 +15,9 @@ function scr_item_woodensword(){
 	}else{
 		scr_ui_dialog_create("You equipped a wooden sword!");
 		scr_item_remove(argument[1]);
-		scr_item_add(global.charaweapon[argument[0]]);
-		global.charaweapon[argument[0]]=3;
+		if(global.charaweapon[argument[0]] != 7)
+			scr_item_add(global.charaweapon[argument[0]]);
+		global.charaweapon[argument[0]] = 3;
 		global.charaattack[argument[0]] = 10;
 		obj_battle.battle_ui_dialog=scr_create_text(432+15+5,520+16,"setting",scr_ui_dialog_get()){
 			obj_battle.battle_ui_dialog.can_destroy=1;

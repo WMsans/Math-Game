@@ -1,3 +1,3 @@
 /// @description 
 event_inherited();
-global.plot=tmp_plot;
+global.plot=max(tmp_plot, global.plot);

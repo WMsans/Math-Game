@@ -14,4 +14,5 @@ function scr_play_bgm(_bgm, _into_len,_loop_len){
 		}
 		return _con;
 	}
+	obj_bgm.into_new_room = false;
 }

@@ -7,7 +7,7 @@ function scr_battlingskill_init(_pos){
 			skill_tary=-999;
 			break;
 		case 2://aleX 十字划
-			skill_cool=30;
+			skill_cool=75;
 			skill_flag=1;
 			break;
 	}

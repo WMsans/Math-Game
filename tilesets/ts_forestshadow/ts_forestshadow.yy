@@ -1,25 +1,9 @@
 {
-  "spriteId": {
-    "name": "spr_ts_forestshadow",
-    "path": "sprites/spr_ts_forestshadow/spr_ts_forestshadow.yy",
-  },
-  "tileWidth": 72,
-  "tileHeight": 72,
-  "tilexoff": 0,
-  "tileyoff": 0,
-  "tilehsep": 0,
-  "tilevsep": 0,
-  "spriteNoExport": true,
-  "textureGroupId": {
-    "name": "Default",
-    "path": "texturegroups/Default",
-  },
-  "out_tilehborder": 2,
-  "out_tilevborder": 2,
-  "out_columns": 4,
-  "tile_count": 18,
+  "resourceType": "GMTileSet",
+  "resourceVersion": "1.0",
+  "name": "ts_forestshadow",
   "autoTileSets": [
-    {"tiles":[
+    {"resourceType":"GMAutoTileSet","resourceVersion":"1.0","name":"autotile_1","closed_edge":false,"tiles":[
         1,
         2,
         3,
@@ -36,10 +20,30 @@
         14,
         15,
         0,
-      ],"closed_edge":false,"resourceVersion":"1.0","name":"autotile_1","tags":[],"resourceType":"GMAutoTileSet",},
+      ],},
   ],
-  "tileAnimationFrames": [],
-  "tileAnimationSpeed": 15.0,
+  "macroPageTiles": {
+    "SerialiseHeight": 0,
+    "SerialiseWidth": 0,
+    "TileSerialiseData": [],
+  },
+  "out_columns": 4,
+  "out_tilehborder": 2,
+  "out_tilevborder": 2,
+  "parent": {
+    "name": "forest",
+    "path": "folders/Tile Sets/forest.yy",
+  },
+  "spriteId": {
+    "name": "spr_ts_forestshadow",
+    "path": "sprites/spr_ts_forestshadow/spr_ts_forestshadow.yy",
+  },
+  "spriteNoExport": true,
+  "textureGroupId": {
+    "name": "Default",
+    "path": "texturegroups/Default",
+  },
+  "tile_count": 18,
   "tileAnimation": {
     "FrameData": [
       0,
@@ -63,17 +67,12 @@
     ],
     "SerialiseFrameCount": 1,
   },
-  "macroPageTiles": {
-    "SerialiseWidth": 0,
-    "SerialiseHeight": 0,
-    "TileSerialiseData": [],
-  },
-  "parent": {
-    "name": "forest",
-    "path": "folders/Tile Sets/forest.yy",
-  },
-  "resourceVersion": "1.0",
-  "name": "ts_forestshadow",
-  "tags": [],
-  "resourceType": "GMTileSet",
+  "tileAnimationFrames": [],
+  "tileAnimationSpeed": 15.0,
+  "tileHeight": 72,
+  "tilehsep": 0,
+  "tilevsep": 0,
+  "tileWidth": 72,
+  "tilexoff": 0,
+  "tileyoff": 0,
 }

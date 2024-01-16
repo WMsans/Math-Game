@@ -5,7 +5,6 @@ function scr_battle_chara_skill_spr(_pos){
 			
 			break;
 		case 2://Alex: 十字划
-			sprite_index=spr_player_battle_slash;
 			
 			
 			break;

@@ -1,8 +1,7 @@
 function scr_battle_waveend(){
 	with(obj_battle){
 		if(battle_state==BATTLE_STATES.enemy){
-			battle_state=BATTLE_STATES.player;
-			battle_button_state=BATTLE_BUTTON_STATE.button_choice;
+			battle_state=BATTLE_STATES.fight_post_text;
 			with(obj_character_battle){
 				guiwei=true;
 			}

@@ -51,6 +51,8 @@ function scr_savegame(){
 	ini_write_real("progress","backpacksize",global.backpacksize);
 	ini_write_real("progress","mutiplayer",global.mutiplayer);
 	ini_write_real("progress","plot",global.plot);
+	
+	ini_write_real("progress","candytook",global.candytook);
 	ini_close();
 	
 }

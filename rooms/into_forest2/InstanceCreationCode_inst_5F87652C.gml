@@ -1,0 +1,1 @@
+sign_id = "10.letter to adventurer";

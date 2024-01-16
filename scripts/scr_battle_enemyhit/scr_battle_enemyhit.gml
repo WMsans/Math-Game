@@ -6,4 +6,7 @@ function scr_battle_enemyhit(_hitpoint){
 	}else{
 		hp-=_hitpoint;
 	}
+	if(instance_exists(obj_battle)){
+		obj_battle.battle_damage_cnt[pos] += _hitpoint;
+	}
 }

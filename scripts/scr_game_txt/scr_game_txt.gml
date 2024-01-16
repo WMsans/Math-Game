@@ -64,19 +64,13 @@ function scr_game_txt(_text_id){//translate
 				scr_text("Bright sunlight comes through the crystal.");
 				scr_text("Are there anything to break it?");
 				if(instance_exists(obj_darkcrystal_right)){
-					if(obj_darkcrystal_right.flag){
+					if(obj_darkcrystal_right.flag >= 1){
 						scr_text("Something like... a sword?");
 					}
 					obj_darkcrystal_right.flag++;
 				}
 			}else if(global.charaweapon[global.charanowleader] != 7){//进入森林
-				scr_text_create_cutscene([
-					[scr_cutscene_instance_create, 0, 0, "fade", obj_fade_whitescreen],
-					[scr_cutscene_instance_create, 0, 0, "fade", obj_fade_whitescreen],
-					[scr_cutscene_wait,3],
-					[scr_cutscene_room_goto, into_forest, 120, 288, false]
-				]
-				);
+				scr_text("Press " + keychecks(global.keya) + " to select the slash skill, and press " + keychecks(global.keyx) + " to use it!");
 			}else{
 				scr_text("Press " + keychecks(global.keyc) + " to equip the sword.");
 				
@@ -142,6 +136,50 @@ function scr_game_txt(_text_id){//translate
 			scr_text("You feel a sense of connection...");
 			scr_text("Your HP fully recovered.");
 			savebox = true;
+			break;
+		case "10.letter to adventurer":
+			scr_text("To dear adventurers who acciddentally wanders here:");
+			scr_text("Welcome to the forest, the last unsettled part of the Forest Kingdom!");
+			scr_text("I'm the ranger of this forest. Please head east if you are lost.");
+			scr_text("What to explore here: Go North for some food. Go Southeast for the Heart of Forest.");
+			scr_text("You'll see signs along the way. They will lead you to my outpost: a lodge on the border of the Forest Kingdom.");
+			break;
+		case "11.forest chest":
+			scr_text("A jar filled with candy.");
+			scr_text("\"To dear adventurers: please take only one piece.\"");
+			scr_text("\"There may be future adventurers!\"");
+			scr_options("Take one", "11.after take");
+			scr_options("Leave", "11.leave");
+			break;
+		case"11.take":
+			if(global.candytook == 0){
+				scr_text("You take one piece.");
+			}else if(global.candytook == 1){
+				scr_text("You take another piece.");
+				scr_text("How disgusting...");
+			}else if(global.candytook == 2){
+				scr_text("Good luck when meeting the ranger.");
+			}else if(global.candytook >= 3){
+				scr_text("How dare you...");
+			}
+			global.candytook++;
+			scr_item_add(10);
+			
+			break;
+		case"11.after take":
+			if(global.plot <= plots.into_forest){
+				scr_create_cutscene([
+					[scr_cutscene_text,"11.take"]
+					
+				]);
+			}else scr_game_txt("11.take");
+			
+			break;
+		case"11.enemy_approching":
+			
+			break;
+		case"11.leave":
+			scr_text("You decided to leave it for after comers.");
 			break;
 		#endregion
 		#region cutscene
@@ -245,6 +283,14 @@ function scr_game_txt(_text_id){//translate
 			scr_text("Some of the buttons are missing, but you can't see clearly...");
 			scr_text("Maybe you can see more clearly at brighter places?");
 			
+			break;
+		case"Forest Candy":
+			scr_text("You eat the candy wrapped by leaves.");
+			if(global.candytook <= 1){
+				scr_text("You feel the faint scent of the forest in your mouth. You recovered 5 HP.");
+			}else{
+				scr_text("You feel the past guilty in your mouth. You recovered 5 HP.");
+			}
 			break;
 		#endregion
 		#region item picking up

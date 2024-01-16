@@ -17,6 +17,9 @@ function scr_roomcode(){
 	if(!instance_exists(obj_drawsorter)){
 		instance_create_layer(-999,-999,"Instances",obj_drawsorter);
 	}
+	if(instance_exists(obj_bgm)){
+		obj_bgm.into_new_room = true;
+	}
 	while (ds_list_size(global.trigger_enemy_list) > 0){
 		ds_list_delete(global.trigger_enemy_list, 0);
     }

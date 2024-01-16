@@ -403,7 +403,7 @@ if(battle_state==BATTLE_STATES.player){
 	}
 }
 if(battle_state==BATTLE_STATES.encounter_text){
-	if(item_using){//ITEM
+	if(item_using){//优先ITEM
 		for(var i=1;i<=global.charanum;i++){//遍历chara_pos
 			if(button_choice[i]==3){//选择的是ITEM
 				script_execute(global.itemdata_scr[global.item[battle_item_choice[i]]],battle_action_choice[i],battle_item_choice[i]);
@@ -438,6 +438,7 @@ if(battle_state==BATTLE_STATES.encounter_text){
 					scr_fadeout(global.target_rm,global.target_x,global.target_y);
 				}else if(!fight_using){
 					battle_state=BATTLE_STATES.enemy_dialog;
+					battle_button_state = BATTLE_BUTTON_STATE.button_choice;
 					with(scr_enemy_get(battle_menu_choice[battle_chara_now]-1)){
 						event_user(0);
 					}
@@ -496,12 +497,12 @@ if(battle_state==BATTLE_STATES.encounter_text){
 			}
 			*/
 			battle_button_state=BATTLE_BUTTON_STATE.fight_damage;
-			battle_damage_time=80;
+			battle_damage_time=20;
 		}else if(battle_button_state==BATTLE_BUTTON_STATE.fight_damage){
 			if(battle_damage_time>0){
 				battle_damage_time--;
 			}else{
-				battle_button_state=BATTLE_BUTTON_STATE.button_choice;
+				battle_button_state=BATTLE_BUTTON_STATE.fight_post_anim;
 				battle_state=BATTLE_STATES.enemy_dialog;
 				
 				for(var i=1;i<=scr_enemynum(global.next_enemy_id);i++) if(instance_exists(battle_damage_inst[i])) instance_destroy(battle_damage_inst[i]);
@@ -518,9 +519,73 @@ if(battle_state==BATTLE_STATES.encounter_text){
 		}
 		
 	}
-	
 }
-if(battle_state=BATTLE_STATES.enemy_dialog){
+if(battle_state == BATTLE_STATES.fight_post_text){
+	soul_tarx = -999;
+	soul_tary = -999;
+	arrow_tarx = -999;
+	arrow_tary = -999;
+	
+	if(battle_button_state == BATTLE_BUTTON_STATE.fight_post_anim){
+		for(var i=1;i<=scr_enemynum(global.next_enemy_id);i++){//显示怪物收到的伤害
+			if(!instance_exists(battle_damage_inst[i])){
+				battle_damage_inst[i]=instance_create_layer(1120,init_chara_y[battle_menu_choice[i]]-75,"anim",obj_damage_num);
+				battle_damage_inst[i].pos=i;
+			}
+		}
+		for(var i=1;i<=scr_enemynum(global.next_enemy_id);i++){
+			if(battle_damage_cnt[i]>0){
+				with(scr_enemy_get(battle_menu_choice[i]-1)){//attacked dialog
+					event_user(2);//更改为受伤对话
+					event_user(0);
+				}
+			}
+			if(battle_magicdamage_cnt[i]>0){
+				with(scr_enemy_get(battle_menu_choice[i]-1)){//magic attacked dialog
+					event_user(3);//更改为魔法受伤对话
+					event_user(0);
+				}
+			}
+		}
+		battle_button_state=BATTLE_BUTTON_STATE.fight_post_damage;
+		battle_damage_time=80;
+	}else if(battle_button_state == BATTLE_BUTTON_STATE.fight_post_damage){
+		if(battle_damage_time>0){
+			battle_damage_time--;
+		}else{
+			battle_button_state = BATTLE_BUTTON_STATE.button_choice;
+			battle_state = BATTLE_STATES.fight_post_dialog;
+		
+			for(var i=1;i<=scr_enemynum(global.next_enemy_id);i++) if(instance_exists(battle_damage_inst[i])) instance_destroy(battle_damage_inst[i]);
+			if(instance_exists(battle_targetchoice_inst)) instance_destroy(battle_targetchoice_inst);
+			if(instance_exists(battle_target_inst)) instance_destroy(battle_target_inst);
+		}
+	}else{
+		battle_button_state = BATTLE_BUTTON_STATE.button_choice;
+		battle_state = BATTLE_STATES.player;
+	}
+}
+if(battle_state == BATTLE_STATES.fight_post_dialog){
+	soul_tarx = -999;
+	soul_tary = -999;
+	arrow_tarx = -999;
+	arrow_tary = -999;
+	if(!instance_exists(obj_enemy_battle_par)){//怪死光了
+		battle_state=BATTLE_STATES.enemy;
+		instance_create_layer(-999,-999,"Instances",obj_wave_ending);
+	}else{//还有怪, 生成怪物对话气泡
+		soul_tarx=-999;
+		soul_tary=-999; 
+		if(scr_enemy_dialog_size()>0){
+			if(!instance_exists(obj_enemy_dialog)){
+				instance_create_layer(880,96,"enemy",obj_enemy_dialog);
+			}
+		}else{//说完了
+			if(!instance_exists(obj_enemy_dialog)) battle_state=BATTLE_STATES.player;
+		}
+	}
+}
+if(battle_state == BATTLE_STATES.enemy_dialog){
 	if(!instance_exists(obj_enemy_battle_par)){//怪死光了
 		battle_state=BATTLE_STATES.enemy;
 		instance_create_layer(-999,-999,"Instances",obj_wave_ending);
@@ -546,7 +611,7 @@ if(battle_state==BATTLE_STATES.enemy){//怪物回合
 	}
 }
 
-if(battle_state==BATTLE_STATES.player||battle_state==BATTLE_STATES.encounter_text){
+if(battle_state==BATTLE_STATES.player||battle_state==BATTLE_STATES.encounter_text||battle_state == BATTLE_STATES.fight_post_text||battle_state == BATTLE_STATES.fight_post_dialog){
 	//set the target pos for the soul
 	obj_battle_arrow.tarx=soul_tarx;
 	obj_battle_arrow.tary=soul_tary;
@@ -555,4 +620,3 @@ if(battle_state==BATTLE_STATES.player||battle_state==BATTLE_STATES.encounter_tex
 	obj_battle_arrow_chara.tary=arrow_tary;
 }
 
-show_debug_message(string(battle_damage[battle_chara_now]) + " " + string(scr_enemy_get(0).hp));

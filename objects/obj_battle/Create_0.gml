@@ -4,6 +4,8 @@ enum BATTLE_STATES{
 	player,
 	enemy_dialog,
 	dialog,
+	fight_post_text,
+	fight_post_dialog,
 	
 	encounter_text,
 }
@@ -13,6 +15,8 @@ enum BATTLE_BUTTON_STATE{
 	fight_target,//蓄力条
 	fight_anim,//武器动画
 	fight_damage,//伤害动画
+	fight_post_anim,//回合后武器动画
+	fight_post_damage,//回合后伤害动画
 	
 	act_menu,//挑一个怪
 	act_choice,//挑一个行为
@@ -82,7 +86,9 @@ battle_target_resettime=0;
 battle_target_resettimer=60;
 
 for(var i=1;i<=scr_enemynum(global.next_enemy_id);i++){
-	battle_damage_inst[i]=noone;
+	battle_damage_inst[i] = noone;
+	battle_damage_cnt[i] = 0;
+	battle_magicdamage_cnt[i] = 0;
 }
 for(var i = 1; i <= global.charanum; i++){
 	battle_damage[i]=0;

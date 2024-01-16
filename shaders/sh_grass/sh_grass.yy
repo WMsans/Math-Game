@@ -1,11 +1,10 @@
 {
-  "type": 1,
+  "resourceType": "GMShader",
+  "resourceVersion": "1.0",
+  "name": "sh_grass",
   "parent": {
     "name": "DepthGrass",
     "path": "folders/Shaders/DepthGrass.yy",
   },
-  "resourceVersion": "1.0",
-  "name": "sh_grass",
-  "tags": [],
-  "resourceType": "GMShader",
+  "type": 1,
 }
